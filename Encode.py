@@ -3,14 +3,14 @@ def EncodeQR(name):
     if len(name) < 1 or len(name) > 5:
         print("Product name should be 1 to 5 characters long.")
     else:
-        encoded_qr = []
+        enc_qr = []
         for char in name:
             binary_value = format(ord(char), '08b')
-            shift = pad << 1
-            encoded_qr.append(str(bin(shift)[2:]) + binary_value)
+            shift = int(pad) << 1
+            enc_qr.append('{0:08b}'.format(shift) + binary_value)
             
-        return ''.join(encoded_qr)
+        return ''.join(enc_qr)
 
 product_name = input("Enter Product Name: ")
-encoded_result = EncodeQR(product_name)
-print(encoded_result)
+enc_res = EncodeQR(product_name)
+print(enc_res)
